@@ -5,8 +5,8 @@ import string
 import pandas as pd
 
 # Function to generate a random username
-def generate_username():
-    return "user_" + ''.join(random.choices(string.ascii_lowercase + string.digits, k=5))
+def generate_username(index):
+    return f"USER{index:04d}"
 
 # Function to generate a secure random password
 def generate_password():
@@ -17,25 +17,25 @@ def hash_password(password):
     salt = bcrypt.gensalt()
     return bcrypt.hashpw(password.encode(), salt).decode()
 
-# Tạo dữ liệu cho từng loại trang
-def generate_page_data(num_users):
+# Create data for each user
+def generate_user_data(num_users):
     users = []
     for i in range (1, num_users + 1):
         user = {
-            "Username": generate_username(),
+            "Username": generate_username(i),
             "Password": hash_password(generate_password()),
         }
         users.append(user)
     return users
 
 # Generate user data
-num_users = 10  # Number of users to generate
+num_users = 100  # Number of users to generate
 
-# Chuyển thành DataFrame
-df = pd.DataFrame(generate_page_data(num_users))
+# Convert to DataFrame
+df = pd.DataFrame(generate_user_data(num_users))
 
-# Xuất ra file CSV (MySQL-friendly format)
-csv_file = "User.csv"
+# Extract to CSV (MySQL-friendly format)
+csv_file = "Code/User.csv"
 df.to_csv(csv_file, index=False, encoding="utf-8-sig")
 
-print(f"Data has been saved to {csv_file}")
+print(f"User data has been saved to {csv_file}")
