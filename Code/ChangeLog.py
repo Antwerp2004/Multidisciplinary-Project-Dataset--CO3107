@@ -15,7 +15,7 @@ THRESHOLDS = {
 # Define time offsets for each category
 TIME_OFFSETS = {
     "Lighting": 5,      # +5 sec
-    "Humidity": 10,     # +10 sec
+    "Humidifying": 10,     # +10 sec
     "Watering": 15,     # +15 sec
     "Heating": 20,      # +20 sec
     "Cooling": 25,      # +25 sec
@@ -32,23 +32,23 @@ for _, row in df_reports.iterrows():
     # Check conditions and log necessary changes
     if row["Light Level (Lux)"] < THRESHOLDS["Light Level (Lux)"]:
         time_offset = base_time + timedelta(seconds=TIME_OFFSETS["Lighting"])
-        change_logs.append([gid, time_offset.strftime("%Y-%m-%d %H:%M:%S"), "Lighting", "Turned on grow lights"])
+        change_logs.append([gid, time_offset.strftime("%Y-%m-%d %H:%M:%S"), "Lighting", "Turn on grow lights"])
 
     if row["Humidity (%)"] < THRESHOLDS["Humidity (%)"]:
-        time_offset = base_time + timedelta(seconds=TIME_OFFSETS["Humidity"])
-        change_logs.append([gid, time_offset.strftime("%Y-%m-%d %H:%M:%S"), "Humidity", "Activated humidifier"])
+        time_offset = base_time + timedelta(seconds=TIME_OFFSETS["Humidifying"])
+        change_logs.append([gid, time_offset.strftime("%Y-%m-%d %H:%M:%S"), "Humidifying", "Activate humidifier"])
 
     if row["Soil Moisture (Arbitrary Scale)"] < THRESHOLDS["Soil Moisture (Arbitrary Scale)"]:
         time_offset = base_time + timedelta(seconds=TIME_OFFSETS["Watering"])
-        change_logs.append([gid, time_offset.strftime("%Y-%m-%d %H:%M:%S"), "Watering", "Watered the soil"])
+        change_logs.append([gid, time_offset.strftime("%Y-%m-%d %H:%M:%S"), "Watering", "Water the soil"])
 
     if row["Temperature (°C)"] < THRESHOLDS["Temperature (°C)"]["low"]:
         time_offset = base_time + timedelta(seconds=TIME_OFFSETS["Heating"])
-        change_logs.append([gid, time_offset.strftime("%Y-%m-%d %H:%M:%S"), "Heating", "Turned on heater"])
+        change_logs.append([gid, time_offset.strftime("%Y-%m-%d %H:%M:%S"), "Heating", "Turn on heater"])
 
     if row["Temperature (°C)"] > THRESHOLDS["Temperature (°C)"]["high"]:
         time_offset = base_time + timedelta(seconds=TIME_OFFSETS["Cooling"])
-        change_logs.append([gid, time_offset.strftime("%Y-%m-%d %H:%M:%S"), "Cooling", "Turned on cooling system"])
+        change_logs.append([gid, time_offset.strftime("%Y-%m-%d %H:%M:%S"), "Cooling", "Turn on cooling system"])
 
 # Convert to DataFrame
 df_changelog = pd.DataFrame(change_logs, columns=["GID", "Time", "Category", "Description"])
