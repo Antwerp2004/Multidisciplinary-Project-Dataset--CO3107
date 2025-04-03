@@ -2,7 +2,7 @@ import requests
 import matplotlib.pyplot as plt
 
 AIO_USERNAME = "toan_fi"
-AIO_KEY      = "aio_KLuE16UjOOOyQmmjNf8W37ylj7xl"
+AIO_KEY      = "aio_eUNG96MEOhMlAcdCPag8I2FOOFjy"
 
 
 
@@ -85,5 +85,6 @@ def toggle_lights():
     return response_post.status_code
 
 
+# toggle_lights()
 # control('humid', 0)
 control('temp', 0)
