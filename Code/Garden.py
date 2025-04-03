@@ -42,7 +42,7 @@ descriptions = [
 
 # Generate gardens
 gardens = []
-num_gardens = 300
+num_gardens = 2
 
 for i in range(1, num_gardens + 1):
     garden = {

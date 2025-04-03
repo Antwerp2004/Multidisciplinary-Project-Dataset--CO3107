@@ -8,7 +8,7 @@ df_reports = pd.read_csv("Code/Report.csv")
 THRESHOLDS = {
     "Light Level (Lux)": 200,  # Turn on Grow Lights if below this
     "Humidity (%)": 40,  # Turn on Humidifier if below this
-    "Soil Moisture (Arbitrary Scale)": 20,  # Water if below this
+    "Soil Moisture (%)": 20,  # Water if below this
     "Temperature (°C)": {"low": 18, "high": 30},  # Heating <18°C, Cooling >30°C
 }
 
@@ -38,7 +38,7 @@ for _, row in df_reports.iterrows():
         time_offset = base_time + timedelta(seconds=TIME_OFFSETS["Humidifying"])
         change_logs.append([gid, time_offset.strftime("%Y-%m-%d %H:%M:%S"), "Humidifying", "Activate humidifier"])
 
-    if row["Soil Moisture (Arbitrary Scale)"] < THRESHOLDS["Soil Moisture (Arbitrary Scale)"]:
+    if row["Soil Moisture (%)"] < THRESHOLDS["Soil Moisture (%)"]:
         time_offset = base_time + timedelta(seconds=TIME_OFFSETS["Watering"])
         change_logs.append([gid, time_offset.strftime("%Y-%m-%d %H:%M:%S"), "Watering", "Water the soil"])
 

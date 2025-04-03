@@ -14,7 +14,7 @@ relations = []
 
 for gid in gardens:
     # Assign 1-5 users to each garden (exponential distribution)
-    num_users = min(5, max(1, np.random.geometric(0.75)))  # Bias towards smaller numbers
+    num_users = min(5, max(1, np.random.geometric(0.5)))  # Bias towards smaller numbers
     assigned_users = random.sample(usernames, num_users)
 
     # Save each (Garden, User) pair

@@ -29,7 +29,7 @@ def generate_user_data(num_users):
     return users
 
 # Generate user data
-num_users = 100  # Number of users to generate
+num_users = 5  # Number of users to generate
 
 # Convert to DataFrame
 df = pd.DataFrame(generate_user_data(num_users))
