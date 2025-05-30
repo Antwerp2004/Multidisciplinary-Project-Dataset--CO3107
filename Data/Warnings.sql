@@ -1,4 +1,4 @@
-INSERT INTO "User" ("Username", "Time_created", "Description") VALUES
+INSERT INTO "Warnings" ("Username", "Time_created", "Description") VALUES
 ('USER0004', '2025-01-01 09:44:20', 'Temperature regulation failure detected in Garden GAR0001.'),
 ('USER0004', '2025-01-01 18:43:25', 'Cooling system in Garden GAR0001 is not operating correctly.'),
 ('USER0004', '2025-01-01 19:45:05', 'Garden GAR0001 is experiencing abnormal light fluctuations.'),

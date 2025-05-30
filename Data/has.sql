@@ -1,4 +1,4 @@
-INSERT INTO "User" ("GID", "Username") VALUES
+INSERT INTO "UserGarden" ("GID", "Username") VALUES
 ('GAR0001', 'USER0004'),
 ('GAR0002', 'USER0004'),
 ('GAR0002', 'USER0005'),
