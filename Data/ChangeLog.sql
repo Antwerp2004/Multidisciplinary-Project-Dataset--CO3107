@@ -1,4 +1,4 @@
-INSERT INTO "User" ("GID", "Time", "Category", "Description") VALUES
+INSERT INTO "ChangeLog" ("GID", "Time", "Category", "Description") VALUES
 ('GAR0001', '2025-01-01 00:00:15', 'Watering', 'Water the soil'),
 ('GAR0001', '2025-01-01 00:26:55', 'Cooling', 'Turn on cooling system'),
 ('GAR0001', '2025-01-01 00:37:10', 'Humidifying', 'Activate humidifier'),
