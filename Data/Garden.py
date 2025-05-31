@@ -42,7 +42,7 @@ descriptions = [
 
 # Generate gardens
 gardens = []
-num_gardens = 2
+num_gardens = 5
 
 for i in range(1, num_gardens + 1):
     garden = {
@@ -55,7 +55,7 @@ for i in range(1, num_gardens + 1):
 
 # Convert to DataFrame and save as CSV
 df_gardens = pd.DataFrame(gardens)
-csv_file = "Code/Garden.csv"
+csv_file = "Data/Garden.csv"
 df_gardens.to_csv(csv_file, index=False, encoding="utf-8-sig")
 
 print(f"Garden data has been saved to {csv_file}")

@@ -1,9 +1,9 @@
 import pandas as pd
 
 # Load the CSV file
-csv_file = "Code/Warnings.csv"  # Replace with your CSV file
-output_sql_file = "Code/Warnings.sql"  # Output SQL file
-table_name = "User"  # Your MySQL table name
+csv_file = "Data/Garden.csv"  # Replace with your CSV file
+output_sql_file = "Data/Garden.sql"  # Output SQL file
+table_name = "Garden"  # Your MySQL table name
 
 # Read the CSV file into a DataFrame
 df = pd.read_csv(csv_file, encoding='utf-8-sig')
